@@ -22,6 +22,15 @@ Login.prototype.isLoggedIn = function(sessionId) {
 	return sessionId in this.sessionMap;
 };
 
+
+Login.prototype.isName = function(sessionId) {
+	return this.sessionMap[sessionId].name;
+};
+
+Login.prototype.isEmail = function(sessionId) {
+	return this.sessionMap[sessionId].email;
+};
+
 /**
  * Create a new session id for the given user.
  */
@@ -42,6 +51,7 @@ Login.prototype.login = function(_name, _email) {
  */ 
 Login.prototype.logout = function(sessionId) {
 	console.log('logout::' + sessionId);
+        delete this.sessionMap[sessionId];
    /*
 	* TODO: Remove the given sessionId from the sessionMap
 	*/
